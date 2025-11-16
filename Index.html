@@ -127,7 +127,7 @@
     <!-- Live Chat Section -->
     <div class="chat-box">
       <div class="chat-status">Online</div>
-      <a class="chat-button" href="https://www.ebay.com/help">Start Live Chat</a>
+      <a class="chat-button" href="#" onclick="openTidioChat(); return false;">Start Live Chat</a>
     </div>
   </div>
 
@@ -135,6 +135,9 @@
     Purchase protected by eBay Money Back Guarantee.<br>
     <a href="https://www.ebay.com/help">Help & Contact</a>
   </footer>
+
+  <!-- Live chat script -->
+  <script src="//code.tidio.co/7txjt9hdnwy8hazdmi889jfeeaynoiyb.js" async></script>
 
   <script>
     const helpTopics = document.getElementById('helpTopics');
@@ -151,6 +154,15 @@
       const val = helpTopics.value;
       topicInfo.textContent = val ? guidance[val] : "Please select a topic to see guidance.";
     });
+
+    // Function to open Tidio chat
+    function openTidioChat() {
+      if (window.tidioChatApi) {
+        window.tidioChatApi.open();
+      } else {
+        alert("Chat is still loading, please try again in a moment.");
+      }
+    }
   </script>
 </body>
 </html>
