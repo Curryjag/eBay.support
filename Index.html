@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eBay Support</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f5f7fa;
+      color: #1c1e21;
+    }
+    header {
+      background: linear-gradient(90deg, #0064d2, #004080);
+      color: white;
+      padding: 18px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 28px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      color: #0064d2;
+    }
+    p {
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 12px;
+    }
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      transition: border 0.3s ease;
+    }
+    select:focus {
+      border-color: #0064d2;
+      outline: none;
+    }
+    .topic-info {
+      margin-top: 15px;
+      padding: 16px;
+      background: #eef4fb;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #333;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .chat-box {
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      background-color: #f9fbfd;
+    }
+    .chat-status {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #22c55e;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .chat-button {
+      display: inline-block;
+      background-color: #0064d2;
+      color: white;
+      padding: 12px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .chat-button:hover {
+      background-color: #004080;
+    }
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #777;
+      margin: 30px 0 20px;
+    }
+    footer a {
+      color: #0064d2;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    eBay Support Center
+  </header>
+
+  <div class="container">
+    <h1>Welcome to eBay Support</h1>
+    <p>If you have questions about your orders, returns, payments, or account, we're here to help.</p>
+    <p>Select a topic below to see quick guidance, or start a live chat with an assistant.</p>
+
+    <!-- Help Topics Dropdown -->
+    <select id="helpTopics">
+      <option value="">-- Select a help topic --</option>
+      <option value="orders">Orders & Tracking</option>
+      <option value="returns">Returns & Refunds</option>
+      <option value="payments">Payments & Fees</option>
+      <option value="account">Account & Security</option>
+    </select>
+
+    <div class="topic-info" id="topicInfo">
+      Please select a topic to see guidance.
+    </div>
+
+    <!-- Live Chat Section -->
+    <div class="chat-box">
+      <div class="chat-status">Online</div>
+      <a class="chat-button" href="#">Start Live Chat</a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 eBay Support Center · <a href="https://www.ebay.com/help">Help & Contact</a>
+  </footer>
+
+  <!-- Live chat script -->
+  <script src="//code.tidio.co/7txjt9hdnwy8hazdmi889jfeeaynoiyb.js" async></script>
+
+  <script>
+    const helpTopics = document.getElementById('helpTopics');
+    const topicInfo = document.getElementById('topicInfo');
+
+    const guidance = {
+      orders: "Track your order in My eBay > Purchase History. Contact the seller if tracking is missing.",
+      returns: "Start a return in My eBay. Refunds are processed once the item is received back.",
+      payments: "Check your payment status in My eBay. Fees and invoices are listed under Account Settings.",
+      account: "Update your password and security settings in My eBay > Account. Enable 2FA for added protection."
+    };
+
+    helpTopics.addEventListener('change', () => {
+      const val = helpTopics.value;
+      topicInfo.textContent = val ? guidance[val] : "Please select a topic to see guidance.";
+    });
+  </script>
+</body>
+</html>
